@@ -1,0 +1,20 @@
+/* General styles */
+body {
+  background-color: #000826; }
+
+.container {
+  text-align: center; }
+
+.searchform input {
+  width: 70vw;
+  height: 40px; }
+
+.shadow {
+  -moz-box-shadow: 3px 3px 5px 6px #04103B;
+  -webkit-box-shadow: 3px 3px 5px 6px #04103B;
+  box-shadow: 3px 3px 5px 6px #04103B; }
+
+.search-image {
+  padding: 40px 0px 20px 0px; }
+
+/*# sourceMappingURL=styles.css.map */
