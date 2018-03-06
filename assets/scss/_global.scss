@@ -1,0 +1,17 @@
+// Global styles
+$shadow-color: #0C1737;
+$background-color: #070E23;
+
+body {
+	background-color: $background-color;
+}
+
+.shadow {
+	-moz-box-shadow: 3px 3px 5px 6px $shadow-color;
+  -webkit-box-shadow: 3px 3px 5px 6px $shadow-color;
+  box-shadow: 3px 3px 5px 6px $shadow-color;
+}
+
+.settings {
+	margin: 10px;
+}

@@ -1,20 +1,26 @@
-/* General styles */
 body {
-  background-color: #000826; }
-
-.container {
-  text-align: center; }
-
-.searchform input {
-  width: 70vw;
-  height: 40px; }
+  background-color: #070E23; }
 
 .shadow {
-  -moz-box-shadow: 3px 3px 5px 6px #04103B;
-  -webkit-box-shadow: 3px 3px 5px 6px #04103B;
-  box-shadow: 3px 3px 5px 6px #04103B; }
+  -moz-box-shadow: 3px 3px 5px 6px #0C1737;
+  -webkit-box-shadow: 3px 3px 5px 6px #0C1737;
+  box-shadow: 3px 3px 5px 6px #0C1737; }
+
+.settings {
+  margin: 10px; }
+
+.searchform input {
+  width: 100%;
+  height: 40px;
+  padding: 5px; }
+
+.searchform {
+  text-align: center; }
 
 .search-image {
   padding: 40px 0px 20px 0px; }
+  @media screen and (max-width: 350px) {
+    .search-image {
+      width: 100%; } }
 
 /*# sourceMappingURL=styles.css.map */

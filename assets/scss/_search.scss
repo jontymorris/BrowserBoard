@@ -1,0 +1,17 @@
+// Search form styles
+.searchform input {
+	width: 100%;
+	height: 40px;
+	padding: 5px;
+}
+
+.searchform {
+	text-align: center;
+}
+
+.search-image {
+	padding: 40px 0px 20px 0px;
+	@media screen and (max-width: 350px) {
+		width: 100%;
+	}
+}
