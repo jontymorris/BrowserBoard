@@ -1,4 +1,4 @@
-{% include 'home/_head.html' with title='Home' %}
+{% include 'home/_head.html' with title='BrowserBoard' %}
 
 <a href="edit">
 	<img src="static/images/settings.png" width="30px" class="settings">
@@ -11,12 +11,25 @@
 		<div class="col-md-2"></div>
 		<div class="col-md-8">
 			<form action="http://www.google.com/search" class="searchform" method="get" name="searchform">
-				<img src="static/images/google.png" width="350px" class="search-image"><br>
+				<a href="https://www.google.com">
+					<img src="static/images/google.png" width="350px" class="search-image"><br>
+				</a>
 				<input autocomplete="on" class="shadow search" name="q" autocomplete="off" placeholder="Search the Web" required="required" type="text">
 			</form>
 		</div>
 		<div class="col-md-2"></div>
 	</div>
+
+		<!-- Alerts -->
+		<div class="row">
+			<div class="col-md-12 updates">
+				{% for item in updates %}
+					<a href="{{ item.url }}">
+						<img src="{{ item.img }}">
+					</a>
+				{% endfor %}
+			</div>
+		</div>
 
 </div>
 

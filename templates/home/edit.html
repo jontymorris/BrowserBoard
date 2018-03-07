@@ -1,7 +1,23 @@
-{% include 'home/_head.html' with title='Edit Home' %}
+{% include 'home/_head.html' with title='Edit BrowserBoard' %}
+
+<a href="/" class="link">
+	Return home
+</a>
 
 <div class="container">
 
+		<!-- Alerts -->
+		<div class="row">
+			<div class="col-md-12 updates">
+				{% for item in updates %}
+					<div class="remove-wrapper">
+						<img src="{{ item.img }}">
+						<span class="remove"></span>
+					</div>
+				{% endfor %}
+				<img src="static/images/plus.png" class="plus">
+			</div>
+		</div>
 
 </div>
 
