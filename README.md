@@ -7,7 +7,7 @@ BrowserBoard is the homepage you never had. It will keep track of your favourite
 ## Getting setup
 You will need to have a version of Python 3 and Django installed in order to run BrowserBoard. It is also recommended that you make BrowserBoard your homepage in whatever browser you're using.
 
-The simpliest way to install Django is via pip.
+The simplest way to install Django is via pip.
 ```
 pip install django
 ```
