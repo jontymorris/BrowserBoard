@@ -16,7 +16,16 @@
 	font-size: 20px;
 }
 
-.plus {
-	max-width: 100px;
-	max-height: 100px;
+.new-alert {
+	text-align: center;
+	padding: 20px;
+}
+
+.return-link {
+	@extend .link;
+}
+
+.return-link:hover {
+	text-decoration: none;
+	color: #0080FD;
 }

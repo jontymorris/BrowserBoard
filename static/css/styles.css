@@ -9,7 +9,7 @@ body {
 .settings {
   margin: 10px; }
 
-.link {
+.link, .return-link {
   padding: 10px;
   color: white; }
 
@@ -52,8 +52,12 @@ body {
   content: "X";
   font-size: 20px; }
 
-.plus {
-  max-width: 100px;
-  max-height: 100px; }
+.new-alert {
+  text-align: center;
+  padding: 20px; }
+
+.return-link:hover {
+  text-decoration: none;
+  color: #0080FD; }
 
 /*# sourceMappingURL=styles.css.map */

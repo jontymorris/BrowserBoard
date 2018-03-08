@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import JsonResponse
 
 def index(request):
+	# Test data
 	context = {"updates": [
 			{
 				"id": "1",
@@ -29,6 +30,7 @@ def index(request):
 	return render(request, 'home/index.html', context)
 
 def edit(request):
+	# Test data
 	context = {"updates": [
 			{
 				"id": "1",
@@ -54,3 +56,12 @@ def edit(request):
 	}
 
 	return render(request, 'home/edit.html', context)
+
+def add(request):
+	url = request.POST.get('url', '')
+
+	# The url is empty
+	if not url:
+		return JsonResponse( {'error': 'URL cannot be empty'} )
+
+	return JsonResponse( {'error': False} )

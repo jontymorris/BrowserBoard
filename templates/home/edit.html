@@ -1,24 +1,58 @@
 {% include 'home/_head.html' with title='Edit BrowserBoard' %}
 
-<a href="/" class="link">
+{% csrf_token %}
+
+<a href="/" class="return-link">
 	Return home
 </a>
 
 <div class="container">
 
-		<!-- Alerts -->
-		<div class="row">
-			<div class="col-md-12 updates">
-				{% for item in updates %}
-					<div class="remove-wrapper">
-						<img src="{{ item.img }}">
-						<span class="remove"></span>
-					</div>
-				{% endfor %}
-				<img src="static/images/plus.png" class="plus">
-			</div>
+	<!-- Button trigger modal -->
+	<div class="row">
+		<div class="col-md-12 new-alert">
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+				New Alert
+			</button>
 		</div>
+	</div>
+
+	<!-- Alerts -->
+	<div class="row">
+		<div class="col-md-12 updates">
+			{% for item in updates %}
+				<div class="remove-wrapper">
+					<img src="{{ item.img }}">
+					<span class="remove"></span>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLongTitle">New Alert</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	        <!-- New alert form -->
+        	<label>Copy and paste the url of what you want to track.</label>
+        	<input placeholder="URL" id="url">
+        	<label id="error" class="text-danger"></label>
+	      </div>
+	      <div class="modal-footer">
+	      	<label class="text-muted">You can see a list of supported websites <a href="https://github.com/jontymorris/BrowserBoard/blob/master/README.md" target="_blank">here</a>.</label>
+	        <button type="button" class="btn btn-primary" id="save-button">Add</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 
 </div>
 
-{% include 'home/_footer.html' %}
+{% include 'home/_footer.html' with edit_page=True %}
