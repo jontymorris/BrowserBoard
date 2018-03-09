@@ -3,7 +3,7 @@
 	display: inline-block;
 }
 
-.remove {
+.remove-button {
 	color: #FF2020;
 	position: absolute;
 	top: 0px;
@@ -11,7 +11,7 @@
 	cursor: pointer;
 }
 
-.remove:before {
+.remove-button:before {
 	content: "X";
 	font-size: 20px;
 }

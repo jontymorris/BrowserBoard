@@ -19,11 +19,11 @@
 
 	<!-- Alerts -->
 	<div class="row">
-		<div class="col-md-12 updates">
-			{% for item in updates %}
+		<div class="col-md-12 alerts">
+			{% for item in alerts %}
 				<div class="remove-wrapper">
 					<img src="{{ item.img }}">
-					<span class="remove"></span>
+					<span class="remove-button" alert-id="{{ item.id }}"></span>
 				</div>
 			{% endfor %}
 		</div>
@@ -44,6 +44,7 @@
         	<label>Copy and paste the url of what you want to track.</label>
         	<input placeholder="URL" id="url">
         	<label id="error" class="text-danger"></label>
+        	<label id="message" class="text-muted"></label>
 	      </div>
 	      <div class="modal-footer">
 	      	<label class="text-muted">You can see a list of supported websites <a href="https://github.com/jontymorris/BrowserBoard/blob/master/README.md" target="_blank">here</a>.</label>

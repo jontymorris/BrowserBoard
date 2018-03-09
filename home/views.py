@@ -1,67 +1,37 @@
 from django.shortcuts import render
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 
+from home import services, scraper
+
+# GET
 def index(request):
-	# Test data
-	context = {"updates": [
-			{
-				"id": "1",
-				"url": "https://www.mangapanda.com/one-piece/896",
-				"img": "https://s3.mangapanda.com/cover/one-piece/one-piece-l1.jpg"
-			},
-			{
-				"id": "2",
-				"url": "https://www.mangapanda.com/black-clover/147",
-				"img": "https://s3.mangapanda.com/cover/black-clover/black-clover-l0.jpg"
-			},
-			{
-				"id": "3",
-				"url": "kissanime.ru/Anime/Dragon-Ball-Super/Episode-129?id=143543",
-				"img": "https://myanimelist.cdn-dena.com/images/anime/7/74606.jpg"
-			},
-			{
-				"id": "4",
-				"url": "http://kissanime.ru/Anime/Overlord-II/Episode-009?id=143595&s=beta&pfail=1",
-				"img": "http://kissanime.ru/Uploads/Etc/11-30-2017/19597854588022l.jpg"
-			}
-		]
-	}
+	return render(request, 'home/index.html', services.get_current_alerts())
 
-	return render(request, 'home/index.html', context)
-
+# GET
 def edit(request):
-	# Test data
-	context = {"updates": [
-			{
-				"id": "1",
-				"url": "https://www.mangapanda.com/one-piece",
-				"img": "https://s3.mangapanda.com/cover/one-piece/one-piece-l1.jpg",
-			},
-			{
-				"id": "2",
-				"url": "https://www.mangapanda.com/black-clover",
-				"img": "https://s3.mangapanda.com/cover/black-clover/black-clover-l0.jpg"
-			},
-			{
-				"id": "3",
-				"url": "kissanime.ru/Anime/Dragon-Ball-Super",
-				"img": "https://myanimelist.cdn-dena.com/images/anime/7/74606.jpg"
-			},
-			{
-				"id": "4",
-				"url": "http://kissanime.ru/Anime/Overlord-II",
-				"img": "http://kissanime.ru/Uploads/Etc/11-30-2017/19597854588022l.jpg"
-			}
-		]
-	}
+	return render(request, 'home/edit.html', services.get_all_alerts())
 
-	return render(request, 'home/edit.html', context)
-
+# POST
 def add(request):
-	url = request.POST.get('url', '')
+	try:
+		url = request.POST.get('url', '')
 
-	# The url is empty
-	if not url:
-		return JsonResponse( {'error': 'URL cannot be empty'} )
+		# The url is empty
+		if not url:
+			return JsonResponse( {'error': 'URL cannot be empty'} )
 
-	return JsonResponse( {'error': False} )
+		scraper.initial_scrape(url)
+
+		return JsonResponse( {'error': False} )
+	except:
+		return JsonResponse( {'error': 'Something went wrong'} )
+
+# POST
+def remove(request):
+	try:
+		alert_id = request.POST.get('id', '')
+		services.delete_alert(alert_id)
+
+		return JsonResponse( {'error': False} )
+	except:
+		return JsonResponse( {'error': 'Something went wrong'} )

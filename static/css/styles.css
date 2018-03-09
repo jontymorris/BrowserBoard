@@ -28,27 +28,27 @@ body {
     .search-image {
       width: 100%; } }
 
-.updates {
+.alerts {
   text-align: center;
   color: #FFFFFF; }
-  .updates img {
+  .alerts img {
     height: 200px;
     margin: 5px; }
-  .updates a {
+  .alerts a {
     text-decoration: none; }
 
 .remove-wrapper {
   position: relative;
   display: inline-block; }
 
-.remove {
+.remove-button {
   color: #FF2020;
   position: absolute;
   top: 0px;
   right: 0px;
   cursor: pointer; }
 
-.remove:before {
+.remove-button:before {
   content: "X";
   font-size: 20px; }
 
