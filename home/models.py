@@ -7,7 +7,7 @@ class Alert(models.Model):
 	img = models.URLField(max_length=500)
 	
 	# What object should we use when scraping this?
-	scrape_object = models.CharField(max_length=100)
+	scraper_object = models.CharField(max_length=100)
 
 	# The link the user will be directed to when clicking the alert
 	alert_url = models.URLField(max_length=500)

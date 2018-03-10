@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import JsonResponse, HttpResponse
 
 from home import services, scraper
@@ -10,6 +10,13 @@ def index(request):
 # GET
 def edit(request):
 	return render(request, 'home/edit.html', services.get_all_alerts())
+
+# GET
+def view(request):
+	try:
+		return redirect('//' + services.view_alert(request.GET.get('id', '')))
+	except:
+		return HttpResponse('Something went wrong')
 
 # POST
 def add(request):

@@ -1,18 +1,23 @@
 # BrowserBoard
-A central hub for your media.
+A central homepage for your favourite media
 
 ## What is BrowserBoard
-BrowserBoard is the homepage you never had. It will keep track of your favourite things and will even alert you to any updates.
+BrowserBoard is the homepage you never had. It will keep track of your favorite things and will even alert you to any updates.
 
 ## Getting setup
-You will need to have a version of Python 3 and Django installed in order to run BrowserBoard. It is also recommended that you make BrowserBoard your homepage in whatever browser you're using.
+In order to run BrowserBoard, you will need to have an installation of Python 3, Django and BeautifulSoup 4.
 
-The simplest way to install Django is via pip.
+You can install Python from the the [official website](https://www.python.org).
+
+An easy way to install Django and BeautifulSoup 4 is via pip.
 ```
 pip install django
+pip install beautifulsoup4
 ```
 
-To run the server, cd to the BrowserBoard directory and then run the following command.
+Lastly, to run BrowserBoard you will need to first `cd` into the BrowserBoard directory and then run the following command.
 ```
 python manage.py runserver
 ```
+
+Once everything is setup, it is recommended that you make BrowserBoard your homepage in whatever browser you're using :)

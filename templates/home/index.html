@@ -24,7 +24,7 @@
 		<div class="row">
 			<div class="col-md-12 alerts">
 				{% for item in alerts %}
-					<a href="{{ item.alert_url }}">
+					<a href="view?id={{ item.id }}">
 						<img src="{{ item.img }}">
 					</a>
 				{% endfor %}
