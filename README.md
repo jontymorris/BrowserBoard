@@ -15,9 +15,16 @@ pip install django
 pip install beautifulsoup4
 ```
 
-Lastly, to run BrowserBoard you will need to first `cd` into the BrowserBoard directory and then run the following command.
+Lastly, to run BrowserBoard you will need to first `cd` into the BrowserBoard directory.
+
+If you are running BrowserBoard for the first time, you will need to run the following command.
+```
+python manage.py migrate
+```
+
+Finally, whenever you want to start BrowserBoard, enter the following command.
 ```
 python manage.py runserver
 ```
 
-Once everything is setup, it is recommended that you make BrowserBoard your homepage in whatever browser you're using :)
+Now that everything is setup, it is also recommended that you make BrowserBoard your homepage :)

@@ -12,7 +12,7 @@ def edit(request):
 	return render(request, 'home/edit.html', services.get_all_alerts())
 
 # GET
-def view(request):
+def open(request):
 	try:
 		return redirect('//' + services.view_alert(request.GET.get('id', '')))
 	except:

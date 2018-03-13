@@ -7,5 +7,5 @@ urlpatterns = [
 	path('edit', views.edit, name='edit'),
 	path('add', views.add, name='add'),
 	path('remove', views.remove, name='remove'),
-	path('view', views.view, name='view')
+	path('open', views.open, name='open')
 ]

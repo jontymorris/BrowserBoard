@@ -1,44 +1,32 @@
-from home.models import Alert
-
 from urllib.parse import urlparse, urljoin
 from urllib.request import Request, urlopen
-
-import sys
-
 from bs4 import BeautifulSoup
 
-scraper_objects = {
-	'www.mangapanda.com': 'MangaPanda'
-}
-
-def str_to_class(str):
-    return getattr(sys.modules[__name__], str)
+from home.models import Alert
+from home.scrapers import *
 
 def get_html(url):
 	return urlopen(Request(url, headers={'User-Agent': 'Mozilla/5.0'})).read()
 
-def initial_scrape(url):
-	site = urlparse(url).netloc
-
-	if site not in scraper_objects:
+def initial_scrape(tracking_url):
+	site_url = urlparse(tracking_url).netloc
+	
+	if site_url not in scraper_sites:
 		raise Exception('That site is not supported')
+	
+	soup = BeautifulSoup(get_html(tracking_url), 'html.parser')
+	scraper = get_class(site_url)(soup, site_url, tracking_url, '')
 
-	soup = BeautifulSoup(get_html(url), 'html.parser')
+	new_alert = Alert(site_url=site_url, tracking_url=tracking_url, img=scraper.img, alert_url=scraper.alert_url, should_display=True)
+	new_alert.save()
 
-	scraper_name = scraper_objects[site]
-	scraper = str_to_class(scraper_name)(soup, url, '')
+def routine_scrape():
+	for alert in Alert.objects.all():
+		soup = BeautifulSoup(get_html(alert.tracking_url), 'html.parser')
+		scraper = get_class(alert.site_url)(soup, alert.site_url, alert.tracking_url, alert.alert_url)
 
-	alert = Alert(tracking_url=url, img=scraper.img, scraper_object=scraper_name, alert_url=scraper.alert_url, should_display=True)
-	alert.save()
+		alert.should_display = (scraper.alert_url != alert.alert_url)
+		alert.img = scraper.img
+		alert.alert_url = scraper.alert_url
 
-
-class MangaPanda:
-
-	def __init__(self, soup, url, previous_alert_url):
-		self.tracking_url = url
-		self.img = soup.find('div', {'id': 'mangaimg'}).img['src']
-		
-		base_url = urlparse(url).netloc
-		self.alert_url = base_url + soup.find('div', {'id': 'latestchapters'}).a['href']
-		
-		self.should_display = (not self.alert_url == previous_alert_url)
+		alert.save()
