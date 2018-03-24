@@ -19,7 +19,6 @@ Next, you will now need to `cd` into the BrowserBoard directory.
 
 If you are running BrowserBoard for the first time, you will need to execute the following commands.
 ```
-python manage.py makemigrations
 python manage.py migrate
 ```
 
