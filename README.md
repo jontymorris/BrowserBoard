@@ -10,17 +10,15 @@ In order to run BrowserBoard, you will need to have an installation of Python 3,
 
 You can install Python from the the [official website](https://www.python.org).
 
-An easy way to install Django and BeautifulSoup 4 is via PyPI.
+An easy way to install the required libraries is via PyPI.
 ```
-pip install django
-pip install beautifulsoup4
+pip install -r requirements.txt
 ```
 
 Next, you will now need to `cd` into the BrowserBoard directory.
 
 If you are running BrowserBoard for the first time, you will need to execute the following commands.
 ```
-python manage.py makemigrations
 python manage.py migrate
 ```
 
