@@ -2,6 +2,11 @@
 import os
 import sys
 
+# Fix errors when running windowless
+if sys.executable.endswith("pythonw.exe"):
+  sys.stdout = open(os.devnull, "w");
+  sys.stderr = open(os.path.join(os.getenv("TEMP"), "stderr-"+os.path.basename(sys.argv[0])), "w")
+
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "BrowserBoard.settings")
     try:

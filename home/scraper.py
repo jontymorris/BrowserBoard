@@ -11,9 +11,6 @@ def get_html(url):
 def initial_scrape(tracking_url):
 	site_url = urlparse(tracking_url).netloc
 	
-	if site_url not in scraper_sites:
-		raise Exception('That site is not supported')
-	
 	soup = BeautifulSoup(get_html(tracking_url), 'html.parser')
 	scraper = get_class(site_url)(soup, site_url, tracking_url, '')
 
@@ -22,10 +19,14 @@ def initial_scrape(tracking_url):
 
 def routine_scrape():
 	for alert in Alert.objects.all():
+		previous_display = alert.should_display
+
 		soup = BeautifulSoup(get_html(alert.tracking_url), 'html.parser')
 		scraper = get_class(alert.site_url)(soup, alert.site_url, alert.tracking_url, alert.alert_url)
 
-		alert.should_display = (scraper.alert_url != alert.alert_url)
+		if not previous_display:
+			alert.should_display = (alert.alert_url != scraper.alert_url)
+
 		alert.img = scraper.img
 		alert.alert_url = scraper.alert_url
 

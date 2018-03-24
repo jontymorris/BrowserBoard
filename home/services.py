@@ -20,4 +20,9 @@ def view_alert(id):
 	alert.should_display = False
 	alert.save()
 
-	return alert.alert_url
+	url = alert.alert_url
+
+	for keyword in ['https://', 'http://', 'www.']:
+		url = url.strip(keyword)
+
+	return url

@@ -1,9 +1,11 @@
 import sys
 
+# Import all of the scraper objects here
 from home.scrapers.manga_panda import *
 
 scraper_sites = {
-	'mangapanda.com': 'MangaPanda'
+	# site url: 				class name
+	'mangapanda.com': 	'MangaPanda'
 }
 
 def get_class(site):

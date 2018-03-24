@@ -9,4 +9,6 @@ src/*.egg-info
 lib
 lib64
 .sass-cache/*
-.sqlite3
+*.sqlite3
+*.pyc
+*.pyo
