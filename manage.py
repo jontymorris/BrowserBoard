@@ -2,7 +2,7 @@
 import os
 import sys
 
-# Fix errors when running windowless
+# Fix errors when running without a window
 if sys.executable.endswith("pythonw.exe"):
   sys.stdout = open(os.devnull, "w");
   sys.stderr = open(os.path.join(os.getenv("TEMP"), "stderr-"+os.path.basename(sys.argv[0])), "w")
