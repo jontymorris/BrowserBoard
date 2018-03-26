@@ -15,7 +15,7 @@ class Installer:
 
 		# Run at startup
 		while True:
-			print("Would you like BrowserBoard to run at startup?")
+			print("Would you like BrowserBoard to automatically run at startup?")
 			option = input("y/n: ").lower()
 			if option == "y" or option == "yes":
 				
@@ -42,7 +42,7 @@ class Installer:
 
 	def windows_startup(self):
 		reg = OpenKey(HKEY_CURRENT_USER,r'Software\Microsoft\Windows\CurrentVersion\Run',0, KEY_ALL_ACCESS)
-		value = os.path.dirname(os.path.realpath(__file__)) + "\startup\windows_start.pyw"
+		value = os.path.dirname(os.path.realpath(__file__)) + "\startup\start_server.pyw"
 		with reg:
 			if '%' in value:
 				var_type = REG_EXPAND_SZ
