@@ -17,9 +17,9 @@ pip install -r requirements.txt
 
 Next, you will now need to `cd` into the BrowserBoard directory.
 
-If you are running BrowserBoard for the first time, you will need to execute the following commands.
+If you are running BrowserBoard for the first time, you will need to execute the following command.
 ```
-python manage.py migrate
+python install.py
 ```
 
 Finally, whenever you want to start BrowserBoard, enter the following command.
