@@ -37,8 +37,10 @@ class Installer:
 			else:
 				print("\tbad value!\n")
 
-		# Done
+		# Launch
 		print("Finished!")
+		print("BrowserBoard is now starting, go to localhost:8000 to check it out!\n")
+		os.system('py manage.py runserver')
 
 	def windows_startup(self):
 		reg = OpenKey(HKEY_CURRENT_USER,r'Software\Microsoft\Windows\CurrentVersion\Run',0, KEY_ALL_ACCESS)
