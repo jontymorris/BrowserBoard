@@ -22,13 +22,7 @@ If you are running BrowserBoard for the first time, you will need to execute the
 python install.py
 ```
 
-Finally, whenever you want to start BrowserBoard, enter the following command.
-(Window's users can look at the 'start.bat' for an automated startup)
-```
-python manage.py runserver
-```
-
-Now that everything is setup, it is also recommended that you make BrowserBoard your internet browser's homepage :)
+Once everything is setup, it is recommended that you make BrowserBoard your web browser's homepage :)
 
 ## Supported sites
 - [MangaPanda.com](https://www.mangapanda.com/)
